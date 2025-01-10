@@ -11,4 +11,4 @@ UPDATE_CHAT = "akpm_0007"
 BOT_USERNAME = "@Akpm007_bot"
 CHARA_CHANNEL_ID = -1002187797459
 MONGO_URL = "mongodb+srv://xblade1980:p0cizP1upf34yogf@cluster0.jqcpu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-DATABASE_NAME = "Character_catcher"
+DATABASE_NAME = "@akpm_AKPM007"
