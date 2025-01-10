@@ -1,10 +1,10 @@
 import os
 
-OWNER_ID = 7455169019
-GROUP_ID = "-1002225496870"
+OWNER_ID = 6354431214
+GROUP_ID = ""
 TOKEN = os.getenv("BOT_TOKEN")
-api_id = 20457610
-api_hash = "b7de0dfecd19375d3f84dbedaeb92537"
+api_id = 22661264
+api_hash = "565265a8dc6d806f81133e17751bafdc"
 PHOTO_URL = ["https://files.catbox.moe/oai7m9.mp4"]
 SUPPORT_CHAT = "dragona_support"
 UPDATE_CHAT = "PickBotUpdatesHQ"
