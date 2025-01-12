@@ -1,14 +1,34 @@
-import os
+class Config(object):
+    LOGGER = True
 
-OWNER_ID = 6354431214
-GROUP_ID = "-4700638898"
-TOKEN = os.getenv("7828527701:AAHyELmGZhrnG8esnyj90hgnyYfNIOBEBIA")
-api_id = 22661264
-api_hash = "565265a8dc6d806f81133e17751bafdc"
-PHOTO_URL = ["https://files.catbox.moe/oai7m9.mp4"]
-SUPPORT_CHAT = "akpm_akpm"
-UPDATE_CHAT = "akpm_0007"
-BOT_USERNAME = "@Akpm007_bot"
-CHARA_CHANNEL_ID = -1002187797459
-MONGO_URL = "mongodb+srv://xblade1980:p0cizP1upf34yogf@cluster0.jqcpu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-DATABASE_NAME = "@akpm_AKPM007"
+    # Owner ID (Main Admin)
+    OWNER_ID = "5909658683"
+
+    # List of Sudo Users (Only these users can add/remove other sudo users)
+    sudo_users = ["5909658683", "8019277081", "7590975069", "7430528632"]  # Only these users can add/remove sudo users
+
+    # Telegram Bot Details
+    TOKEN = "7952058734:AAGzkkbQIVFlLQMHQZ9-z6R_tyicRW5ZUis"
+    GROUP_ID = -1002399822734
+    SUPPORT_CHAT = "WH_SUPPORT_GC"
+    UPDATE_CHAT = "iamvillain77"
+    BOT_USERNAME = "bot"
+    CHARA_CHANNEL_ID = "-1002339477315"
+
+    # MongoDB Connection URL
+    mongo_url = "mongodb+srv://TEAMBABY01:UTTAMRATHORE09@cluster0.vmjl9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+    # Photo URLs for bot profile or other use
+    PHOTO_URL = ["https://files.catbox.moe/wy70cl.jpg", "https://files.catbox.moe/wy70cl.jpg"]
+
+    # API Credentials (for additional features if any)
+    api_id = "24061032"
+    api_hash = "5ad029547f2eeb5a0b68b05d0db713be"
+
+
+class Production(Config):
+    LOGGER = True
+
+
+class Development(Config):
+    LOGGER = True
