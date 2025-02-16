@@ -3,6 +3,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from pymongo import ReturnDocument
 import random
+from telegraph import upload_file
 from . import uploader_filter, app
 from Grabber import collection, db, CHARA_CHANNEL_ID
 
@@ -43,19 +44,13 @@ rarity_map = {
     20: "🎨 CUSTOM"
 }
 
-# Upload image to Catbox
-def upload_to_catbox(photo_path):
-    url = "https://catbox.moe/user/api.php"
-    with open(photo_path, 'rb') as photo:
-        response = requests.post(
-            url,
-            data={'reqtype': 'fileupload'},
-            files={'fileToUpload': photo}
-        )
-    if response.status_code == 200 and response.text.startswith("https://"):
-        return response.text.strip()
-    else:
-        raise Exception(f"Catbox upload failed: {response.text}")
+# Upload image to Telegraph
+def upload_to_telegraph(photo_path):
+    try:
+        response = upload_file(photo_path)
+        return f"https://telegra.ph{response[0]}"
+    except Exception as e:
+        raise Exception(f"Telegraph upload failed: {str(e)}")
 
 # Uploader Command
 @app.on_message(filters.command('upload') & uploader_filter)
@@ -93,7 +88,7 @@ async def upload(client: Client, message: Message):
     try:
         # Download Image
         photo = await client.download_media(message.reply_to_message.photo)
-        img_url = upload_to_catbox(photo)
+        img_url = upload_to_telegraph(photo)
 
         # Generate Unique ID & Random Price
         id = str(await get_next_sequence_number('character_id')).zfill(2)
